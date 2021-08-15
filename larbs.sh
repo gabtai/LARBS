@@ -73,6 +73,7 @@ refreshkeys() { \
 	echo "" >> /etc/pacman.conf;echo "[community]" >> /etc/pacman.conf;echo "Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
 	echo "" >> /etc/pacman.conf;echo "#[multilib-testing]" >> /etc/pacman.conf;echo "#Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
 	echo "" >> /etc/pacman.conf;echo "#[multilib]" >> /etc/pacman.conf;echo "#Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
+	echo "" >> /etc/pacman.conf;echo "[lib32]" >> /etc/pacman.conf;echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 	pacman-key --populate archlinux
 	}
 
