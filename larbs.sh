@@ -67,6 +67,13 @@ refreshkeys() { \
 	dialog --infobox "Refreshing Arch Keyring..." 4 40
 	pacman -Q artix-keyring >/dev/null 2>&1 && pacman --noconfirm -S artix-keyring artix-archlinux-support >/dev/null 2>&1
 	pacman --noconfirm -S archlinux-keyring >/dev/null 2>&1
+	echo "" >> /etc/pacman.conf;echo "#[testing]" >> /etc/pacman.conf;echo "#Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
+	echo "" >> /etc/pacman.conf;echo "[extra]" >> /etc/pacman.conf;echo "Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
+	echo "" >> /etc/pacman.conf;echo "#[community-testing]" >> /etc/pacman.conf;echo "#Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
+	echo "" >> /etc/pacman.conf;echo "[community]" >> /etc/pacman.conf;echo "Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
+	echo "" >> /etc/pacman.conf;echo "#[multilib-testing]" >> /etc/pacman.conf;echo "#Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
+	echo "" >> /etc/pacman.conf;echo "#[multilib]" >> /etc/pacman.conf;echo "#Include = /etc/pacman.d/mirrorlist-arch" >> /etc/pacman.conf
+	pacman-key --populate archlinux
 	}
 
 newperms() { # Set special sudoers settings for install (or after).
